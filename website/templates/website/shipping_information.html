@@ -1,0 +1,257 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Shipping Information</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- faq page section start -->
+    <section class="faq__section section--padding">
+        <div class="container">
+            <div class="faq__section--inner">
+                <div class="face__step one border-bottom" id="accordionExample">
+                    <h2 class="face__step--title h3 mb-30">General Information</h2>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="accordion__container">
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What are the general shipping standards for orders placed with Diesel Parts Direct?
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <ol>
+                                        <li class="accordion__items--body__desc">Diesel Parts Direct does everything possible to ship your order the same day the order is placed. We do not have an official cut off time as we process orders as late as possible. If your shipment is time critical and it absolutely must ship that day, please contact Inside Sales at 225.928.1913 prior to ordering to ensure that this is possible.
+                                        </li>
+                                        <li class="accordion__items--body__desc">
+                                            Diesel Parts Direct carries a huge inventory of diesel engine parts and in most cases, the parts listed on our web site are in inventory either at our facility or one of our suppliers. Only items marked specifically with a “Guaranteed in Stock” icon next to the item number are actually guaranteed to be in stock. If for some reason one of those item is not in stock when you place your order, you will be contacted immediately and asked how you would prefer that we handle your order.
+                                        </li>
+                                        <li class="accordion__items--body__desc">
+                                            All shipments, unless specifically denoted, are curb-side shipments.
+                                        </li>
+                                        <li class="accordion__items--body__desc">
+                                            All larger shipments, shipped via freight carrier, will require a signature at the time of delivery.
+                                        </li>
+                                        <li class="accordion__items--body__desc">
+                                            If you authorize the shipping company to leave the delivery without a signature, Diesel Parts Direct cannot be held responsible for damages that may occur during delivery.
+                                        </li>
+                                        <li class="accordion__items--body__desc">
+                                            Diesel Parts Direct is not responsible for shipping costs on merchandise not delivered due to a shipping company’s inability to deliver to a particular location. Certain circumstances may include but are not limited to: narrow or winding roads, dirt or gravel roads, and vacant establishments.
+                                        </li>
+                                        <li class="accordion__items--body__desc">
+                                            In home delivery is neither implied nor offered without additional charge, and is not necessarily available even if the customer is willing to pay more for it.
+                                        </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">How are my items shipped?
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">We use UPS or FedEx for smaller items, and larger items go motor freight. We reserve the right to choose which freight provider carries your shipment.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            We do not, however, control the shipping companies (freight or UPS). Once a shipment is in the hands of the delivery company, we cannot change shipping addresses, we cannot make a delivery happen on a certain day, and we can only approximate delivery times.
+                                        </p>
+                                        </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">When can I expect to receive my order?
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Our in-stock orders will probably take about 1-4 business days to reach a customer depending on your location.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="face__step one border-bottom" id="accordionExample2">
+                    <h2 class="face__step--title h3 mb-30">Problems with my Order</h2>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="accordion__container">
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What if an item is returned because it is not deliverable due to an incorrect address?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">The customer will be responsible for shipping both ways. Orders for larger items that must ship freight require the shipping company to contact the customer prior to delivery. If the product is returned because the freight company could not reach the customer, this will be considered a return, and the order will be subject to our regular return policies.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">The customer is responsible for all duties and tariffs on Canadian shipments.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What if my items arrive damaged?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">If your shipment arrived through a typical delivery service such as USPS, UPS or FedEx, please do the following:
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Make the delivery driver and shipping company aware of the damage. It is difficult for us to file a claim if it has not been noted as damaged upon receipt
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Report the damage to your salesperson immediately by calling 225.928.1913
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            If your shipment arrived by freight, please read below for details.</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="face__step one" id="accordionExample3">
+                    <h2 class="face__step--title h3 mb-30">Freight Shipping
+                    </h2>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="accordion__container">
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What are things I should consider when my order arrives via freight?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Make sure that the pallet/piece count on the delivery receipt matches the number of pallets/pieces you receive.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">   
+                                            Inspect the packaging for external damage.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class=" accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What if I am missing pallets or pieces?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Note this on the delivery receipt before you sign it. Ex: "Received 4 of 5 pieces".
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Call us at 225.928.1913 immediately to let us know you are missing pallets/pieces. We will find them and get them to you as soon as we can.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What if I notice exterior damage via freight?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Open the box and inspect for concealed damage before signing the delivery receipt.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            If you refuse the shipment in this manner, it does not invalidate your order and we will still work diligently to get your order to you in good condition as quickly as possible.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Note any damages to the packaging or products on the delivery receipt by specifically writing the word "Damaged" before signing.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Signing your delivery receipt without noting any damages legally states that you have received your freight in good condition.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="accordion__container">
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What if I observed no visible exterior damage but still have concerns for the packaged items delivered via freight?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Sign for your freight and write this note specifically on the delivery receipt: "Did not inspect for concealed damage".
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Inspect your items for concealed damage after the driver has left. You have 3 business days to call us at 225.928.1913 to report concealed damage.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            If you authorize the freight company to leave freight without a signature, Diesel Parts Direct cannot be held liable for any damages or missing pieces. Leaving a note is the same as signing for your products in good condition.
+                                        </p>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>     
+    </section>
+    <!-- faq page section end -->
+
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

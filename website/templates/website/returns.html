@@ -1,0 +1,147 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Parts Return Policy</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start privacy policy section -->
+    <div class="privacy__policy--section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="privacy__policy--content">
+
+                        <p class="privacy__policy--content__desc" style="font-weight: bolder;">
+                            We want you to shop with confidence, so we strive to make returns as easy and as transparent as possible.
+                        </p>
+
+                        <h1 class="privacy__policy--content__title">
+                            Parts Return Process
+                        </h1>
+
+                        <p class="privacy__policy--content__desc">
+                            <ul class="privacy__policy--content__desc">
+                                <li>1. Fill out our Request for Return Material Authorization (RMA) form using the link above.</li>
+                                <li>2. Please allow 1 to 2 business days for our Customer Service Department to review the form </li>
+                                <li>3. When your request has been approved, we will email you an RMA and shipping label to print.</li>
+                                    <ol> 
+                                    <li>Please pack your item carefully; the customer is responsible for any damage to the product when shipping it back to us.</li>
+                                    <li>Place the RMA inside your package with the item you are returning; Items not accompanied by this form will not be processed.</li>
+                                    <li>Place the shipping label outside of the package (make sure to include your return address and take note of your tracking number); the customer is responsible for shipping charges.</li>
+                                    </ol>
+
+                                <li>4. Your credit will be issued within 5-20 business days, depending on stocking status and if applicable, the manufacturer's return policy (restocking fees may apply)</li>
+                            </ul>
+                        </p>
+
+                        <h1 class="privacy__policy--content__title">
+                            Product Return Requirements
+                        </h1>
+                        <p class="privacy__policy--content__desc">
+                            In order to receive a credit for your return, items must:
+                                <ol class="privacy__policy--content__desc">
+                                <li>Be accompanied by the RMA issued when filling out a Request for RMA.</li>
+                                <li>Be returned in their original packaging</li>
+                                <li>Have NEVER been used (kits must still be in unopened package)</li>
+                                <li>Be in original condition (no dirt nor grease on the parts)</li>
+                                <li>Not have been purchased at a discounted price where the purchase price was reduced due to damage or use</li>
+                                </ol>
+                            </p>
+                        
+
+                        <h1 class="privacy__policy--content__title">
+                            Hassle Free
+                        </h1>
+                        <p class="privacy__policy--content__desc">
+                            Products marked with icon Hassle free return next to the part number may be returned provided they are in new condition and in their original package. See above for other conditions.
+                        </p>
+
+                        <h1 class="privacy__policy--content__title">
+                            Restocking Fees 
+                        </h1>
+                        <p class="privacy__policy--content__desc">
+                            A 20% restocking fee will be applied to any products marked with icon Restocking fee applies next to the part number
+                        </p>
+                        <h1 class="privacy__policy--content__title">
+                            Special Order and Nonreturnable Items
+                        </h1>
+                        <p class="privacy__policy--content__title">
+                            <ol class="privacy__policy--content__desc">
+                            <li>Items with this icon: Item cannot be returned</li>
+                            <li>Gaskets, gasket sets, seals, seal kits and/or manuals of any type</li>
+                            <li>Electrical components and/or accessories (opened or not)</li>
+                            <li>Bundles (items sold in bulk) that have been opened</li>
+                            <li>Any parts that have been used and are being submitted for warranty consideration and/or coverage </li>
+                            </ol>
+                        </p>
+
+                        <h1 class="privacy__policy--content__title">
+                            Shipping Charges
+                        </h1>
+                        <p class="privacy__policy--content__desc">
+                            <ol class="privacy__policy--content__desc">
+                            <li>If an item is damaged upon arrival, or if we sent the wrong item, Diesel Parts Direct will pay for the return shipping, and we will send the correct item to you at no extra cost.</li>
+                            <li>For any other returns, the customer is responsible for all shipping charges, including any costs incurred in getting the product both to and from the customer, regardless of whether shipping was originally charged or not.</li>
+                            </ol>
+                        </p>
+
+                        <h2 class="privacy__policy--content__title">
+                        Important links:
+                        </h2>
+
+                        <ol class="privacy__policy--content__desc">
+                        <li><a href="{% url 'shipping_information' %}" style="color: #FFCC00;">RMA Form</a></li>
+                        <li><a href="{% url 'shipping_information' %}" style="color: #FFCC00;">Core Return Policy</a></li>
+                        <li><a href="{% url 'shipping_information' %}" style="color: #FFCC00;">Shipping Policy</a></li>
+                        </ol>
+
+                        <p class="privacy__policy--content__desc" style="font-weight: bolder;">
+                        Note: If your item was damaged during shipping, call us immediately at 225.928.1913.
+                        Please refer to our Shipping Policy for additional details.
+                        </p>
+                            
+                    </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End privacy policy section -->
+
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

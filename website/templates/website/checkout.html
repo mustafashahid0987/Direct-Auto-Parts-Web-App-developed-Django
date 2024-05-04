@@ -1,0 +1,254 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Checkout</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start checkout page area -->
+    <form method="post" action="/add_order/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="checkout__page--area section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-6">
+                    <div class="main checkout__mian">
+                        
+                            <div class="checkout__content--step section__contact--information">
+                                <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
+                                    <h2 class="section__header--title h3">Contact information</h2>
+                                    <p class="layout__flex--item">
+                                        Already have an account?
+                                        <a class="layout__flex--item__link" href="login.html">Log in</a>  
+                                    </p>
+                                </div>
+                                <div class="customer__information">
+                                    <div class="checkout__email--phone mb-12">
+                                        <label>
+                                            <input class="checkout__input--field border-radius-5" name="phone_no" placeholder="Phone mumber"  type="text">
+                                        </label>
+                                    </div>
+                                    <div class="checkout__email--phone mb-12">
+                                        <label>
+                                            <input class="checkout__input--field border-radius-5" name="email" placeholder="Email"  type="text">
+                                        </label>
+                                    </div>
+                                    <!-- <div class="checkout__checkbox">
+                                        <input class="checkout__checkbox--input" id="check1" type="checkbox">
+                                        <span class="checkout__checkbox--checkmark"></span>
+                                        <label class="checkout__checkbox--label" for="check1">
+                                            Email me with news and offers</label>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="checkout__content--step section__shipping--address">
+                                <div class="section__header mb-25">
+                                    <h2 class="section__header--title h3">Billing Details</h2>
+                                </div>
+                                <div class="section__shipping--address__content">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mb-20">
+                                            <div class="checkout__input--list ">
+                                                <label class="checkout__input--label mb-5" for="input1">Fist Name <span class="checkout__input--label__star">*</span></label>
+                                                <input class="checkout__input--field border-radius-5" name="first_name" placeholder="First name" id="input1"  type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mb-20">
+                                            <div class="checkout__input--list">
+                                                <label class="checkout__input--label mb-5" for="input2">Last Name <span class="checkout__input--label__star">*</span></label>
+                                                <input class="checkout__input--field border-radius-5" name="last_name" placeholder="Last name" id="input2"  type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-20">
+                                            <div class="checkout__input--list">
+                                                <label class="checkout__input--label mb-5" for="input3">Company Name <span class="checkout__input--label__star">*</span></label>
+                                                <input class="checkout__input--field border-radius-5" name="company" placeholder="Company (optional)" id="input3" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-20">
+                                            <div class="checkout__input--list">
+                                                <label class="checkout__input--label mb-5" for="input4">Address <span class="checkout__input--label__star">*</span></label>
+                                                <input class="checkout__input--field border-radius-5" name="address" placeholder="Address" id="input4" type="text">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-12 mb-20">
+                                            <div class="checkout__input--list">
+                                                <input class="checkout__input--field border-radius-5" placeholder="Apartment, suite, etc. (optional)"  type="text">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-12 mb-20">
+                                            <div class="checkout__input--list">
+                                                <label class="checkout__input--label mb-5" for="input5">Country <span class="checkout__input--label__star">*</span></label>
+                                                <input class="checkout__input--field border-radius-5" name="country" placeholder="Country" id="input5" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-20">
+                                            <div class="checkout__input--list">
+                                                <label class="checkout__input--label mb-5" for="input5">Postal Code <span class="checkout__input--label__star">*</span></label>
+                                                <input class="checkout__input--field border-radius-5" name="postal_code" placeholder="Postal Code" id="input5" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-20">
+                                            <div class="checkout__input--list">
+                                                <label class="checkout__input--label mb-5" for="input5">Payment Proof <span class="checkout__input--label__star">*</span></label>
+                                                <input class="form-control" type="file" name="pf_image" accept="image/*">
+                                            </div>
+                                        </div>
+                                     
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                          
+                            <!-- <div class="checkout__content--step__footer d-flex align-items-center">
+                                <a class="continue__shipping--btn primary__btn border-radius-5" href="index.html">Continue To Shipping</a>
+                                <a class="previous__link--content" href="cart.html">Return to cart</a>
+                            </div> -->
+                       
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <aside class="checkout__sidebar sidebar border-radius-10">
+                        <h2 class="checkout__order--summary__title text-center mb-15">Your Order Summary</h2>
+                        <div class="cart__table checkout__product--table">
+                            <table class="cart__table--inner">
+                                <tbody class="cart__table--body">
+                                    
+                                    {% for quantity_lst, lst, subtotal_lst, cart_id_lst in all_data %}
+                                    {% for pro in lst %}
+                                    <tr class="cart__table--body__items">
+                                        <td class="cart__table--body__list">
+                                            <div class="cart__product d-flex align-items-center">
+                                                <div class="product__thumbnail border-radius-5">
+                                                    {% for image in pro.productimage_set.all|slice:":1" %}
+                                                    <a class="display-block" href="product-details.html"><img class="display-block border-radius-5" src="{{image.image_file.url}}" alt="cart-product"></a>
+                                                    {% endfor %}
+                                                    <span class="product__thumbnail--quantity">{{quantity_lst}}</span>
+                                                </div>
+                                                <div class="product__description">
+                                                    <h4 class="product__description--name"><a href="product-details.html">{{pro.name}}</a></h4>
+                                                    <!-- <span class="product__description--variant">COLOR: White</span> -->
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="cart__table--body__list">
+                                            <span class="cart__price">${{pro.price}}</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    {% endfor %}
+                                    {% endfor %}
+                                   
+                                </tbody>
+                            </table> 
+                        </div>
+                        <div class="checkout__discount--code">
+                                <label>
+                                    <input class="checkout__discount--code__input--field border-radius-5" placeholder="Gift card or discount code"  type="text">
+                                </label>
+                                <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit">Apply</button>
+                        </div>
+                        <div class="checkout__total">
+                            <table class="checkout__total--table">
+                                <tbody class="checkout__total--body">
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Subtotal </td>
+                                        <td class="checkout__total--amount text-right" value="{{subtotal}}">${{subtotal}}</td>
+                                        <input type="hidden" name="order_price" value="{{subtotal}}">
+                                    </tr>
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Shipping</td>
+                                        <td class="checkout__total--calculated__text text-right">Calculated at next step</td>
+                                    </tr>
+                                </tbody>
+              
+                            </table>
+
+                            <h2 class="checkout__total--title text-left" style="margin-top: 4%;">Payment Details</h2>
+                            <p class="checkout__total--title text-left">send the payment here:</p>
+                            {% if payment_method == 'bank' %}
+                            <table class="checkout__total--table">
+                                <tbody class="checkout__total--body">
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">First Name </td>
+                                        <td class="checkout__total--amount text-right">{{bank_obj.first_name}}</td>
+                                    </tr>
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Last Name </td>
+                                        <td class="checkout__total--amount text-right">{{bank_obj.last_name}}</td>
+                                    </tr>
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Bank Name</td>
+                                        <td class="checkout__total--amount text-right">{{bank_obj.bank_name}}</td>
+                                    </tr>
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Account No </td>
+                                        <td class="checkout__total--amount text-right">{{bank_obj.account_no}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            {% else %}
+
+                            <table class="checkout__total--table">
+                                <tbody class="checkout__total--body">
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Network </td>
+                                        <td class="checkout__total--amount text-right">{{bank_obj.network}}</td>
+                                    </tr>
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Wallet Address </td>
+                                        <td class="checkout__total--amount text-right">{{bank_obj.wallet_address}}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                            {% endif %}
+
+                        </div>
+                        
+                        <button class="checkout__now--btn primary__btn" type="submit">Place Order</button>
+                    </aside>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </form>
+    <!-- End checkout page area -->
+
+ 
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

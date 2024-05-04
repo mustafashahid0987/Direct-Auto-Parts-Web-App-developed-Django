@@ -1,0 +1,208 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Ordering Information</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- faq page section start -->
+    <section class="faq__section section--padding">
+        <div class="container">
+            <div class="faq__section--inner">
+                <div class="face__step one border-bottom" id="accordionExample">
+                    <h2 class="face__step--title h3 mb-30">General Information</h2>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="accordion__container">
+                               
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">What are Diesel Parts Direct’s Operating Hours?
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">We are open Monday through Friday, 7:00am through 5:00pm in the Central Standard Zone in the United States.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">How do I know that Diesel Parts Direct is reliable?
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Diesel Parts Direct has been serving the heavy-duty diesel market for over 40 years. We pride ourselves on our reputation and culture of complete customer satisfaction. In addition, we:
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            are rated A+ members of the Better Business Bureau
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            have twice been recognized by the United States Department of Commerce for excellence in Exporting.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            were recognized at the “Exporter of the Year” by Commercial News USA for excellence in the Automotive/Aviation/Marine category
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            were invited by the White House Business Council for input on issues effecting small businesses
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="face__step one border-bottom" id="accordionExample2">
+                    <h2 class="face__step--title h3 mb-30">I am Ready to Order, Now What?</h2>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="accordion__container">
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">How do I know that my information is secure when ordering online?
+                                        <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">We take every reasonable measure to protect your information. We use strong encryption communication protocols, maintain our firewalls and servers to current security standards and follow robust software development and management practices. We never store your credit card information on our systems. In spite of our best efforts, we cannot guarantee that a motivated thief will not find a vulnerability in third party hardware or software beyond our control. We encourage you to use strong passwords when using our systems.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">Privacy Policy
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">How Can I Order?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Diesel Parts Direct caters to all customers, regardless of what their preferred method of ordering is. To order, you can do any of the following.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Buy Online – Simply type in your required part number and quantities. We have an online Customer Service staff that will process your order and contact you if there are any questions.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Call the number at the top of this page and place the order with any one of our knowledgeable Customer Service staff.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Request a quotation by clicking on Get a Quote. We will promptly reply with a complete quotation for your review.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">Do I Need to Know My Part Numbers to Order?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">Absolutely not. Our knowledgeable Customer Service staff are experts at helping customer find the correct parts for their engine. However, if you do not know your part number, you must provide your engine’s serial number. This will allow us to find your engine’s bill of materials and ensure that we are providing you the exact part for your needs.
+                                        </p>
+                                       
+                                    </div>
+
+                                </div>
+
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">How Can I Pay for My Order?
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">We accept major credit cards drawn on US banks (AMEX, Discover, VISA, MasterCard).
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            For wire transfer and other payment options please contact us at: sales@dieselpartsdirect.com.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Credit Card Authorization is required for some orders.
+                                        </p>
+                                        <br>
+                                        <p class="accordion__items--body__desc">
+                                            Customers in the USA may apply for credit, using our Credit Application.
+                                        </p>
+                                       
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="accordion__items">
+                                    <h3 class="accordion__items--title">
+                                        <button class="faq__accordion--btn accordion__items--button">I have placed an order and now have a question/need to make a change.
+
+                                            <svg class="accordion__items--button__icon" xmlns="http://www.w3.org/2000/svg" width="20.355" height="13.394" viewBox="0 0 512 512"><path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" fill="currentColor"/></svg>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion__items--body">
+                                        <p class="accordion__items--body__desc">No problem. We are here to help you. Simply go to the <a href="{% url 'contact' %}" style="color:#FFCC00;">Contact Us</a> page and there you will see multiple ways of reaching us either by phone or email.
+                                        </p>
+                                        
+                                       
+                                    </div>
+                                    
+                                </div>
+
+
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+            </div>   
+        </div>     
+    </section>
+    <!-- faq page section end -->
+
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

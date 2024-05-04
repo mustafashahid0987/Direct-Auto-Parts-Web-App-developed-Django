@@ -1,0 +1,95 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{%% url 'index'}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Add Product</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start login section  -->
+    <div class="login__section section--padding">
+        <div class="container">
+            <form method="post" action="/add_product/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="login__section--inner">
+                    <div class="row row-cols-md-2 row-cols-4 justify-content-center">
+                        <!-- <div class="col"> -->
+                            <div class="account__login">
+                                <div class="account__login--header mb-25">
+                                    <h2 class="account__login--header__title mb-10">Add New Product</h2>
+                                    <!-- <p class="account__login--header__desc">Login if you area a returning customer.</p> -->
+                                </div>
+                                <div class="account__login--inner">
+                                    <label>
+                                        <input class="account__login--input" name="name" placeholder="Product Title" type="text">
+                                    </label>
+                                    <label>
+                                        <textarea class="account__login--input" name="desc" placeholder="Description"></textarea>
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="price" placeholder="Price" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="quantity" placeholder="Quantity" type="text">
+                                    </label>
+                                    
+                                    <label>
+                                    <select class="account__login--input" id="options" name="subcategory" style="width: 100%;">
+                                        <option value="option1">Select Subcategory</option>
+                                        {% for sub in subcategories %}
+                                        <option value="{{sub.id}}">{{sub.name}}</option>
+                                        {% endfor %}
+                                        <!-- Add more options as needed -->
+                                    </select>
+                                    </label>
+
+                                    
+                                    <label>
+                                        <input class="account__login--input" type="file" name="images" id="images" multiple><br><br>
+                                    </label>
+
+                                    <button class="account__login--btn primary__btn" type="submit">Add Product</button>
+                                    
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>     
+    </div>
+    <!-- End login section  -->
+
+
+
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Promotion Details</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start privacy policy section -->
+    <div class="privacy__policy--section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="privacy__policy--content">
+                        <img src="{% static 'img/other/promotion2.png' %}" alt="" style="margin-bottom: 2%;">
+                        <h1 class="privacy__policy--content__title">10% off Popular Starters and Alternators with coupon
+                        </h1>
+                        <ol>
+                            <li class="privacy__policy--content__desc">
+                                Shop Starters and Alternators
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                promotion item icon icon identifies eligible parts
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                Use coupon code: DC24
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="privacy__policy--content">
+                        <img class="blog__thumbnail--img border-radius-10" src="{% static 'img/other/promotion1.png' %}" alt="" style="margin-bottom: 2%;">
+                        <h1 class="privacy__policy--content__title">Offer Details</h1>
+                        <ol>
+                            <li class="privacy__policy--content__desc">
+                                Applies only to items with the gift package icon
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                Must use coupon code: DC24 or let your sales rep know you want the discount
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                Does not apply to prior purchases
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                Offer valid 4/3/2024 10:00 AM to 4/30/2024 5:00 PM. We reserve the right to end the offer at any time.
+                            </li>
+                        </ol>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End privacy policy section -->
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,257 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <h1 class="breadcrumb__content--title mb-25"> Cart</h1>
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Shopping Cart</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- cart section start -->
+    <section class="cart__section section--padding">
+        <div class="container-fluid">
+            <div class="cart__section--inner">
+                <form method="post" action="/checkout/"> 
+                    <h2 class="cart__title mb-30">Shopping Cart</h2>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="cart__table">
+                                <table class="cart__table--inner">
+                                    <thead class="cart__table--header">
+                                        <tr class="cart__table--header__items">
+                                            <th class="cart__table--header__list">Product</th>
+                                            <th class="cart__table--header__list">Price</th>
+                                            <th class="cart__table--header__list">Quantity</th>
+                                            <th class="cart__table--header__list">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cart__table--body">
+                                        {% for quantity_lst, lst, subtotal_lst, cart_id_lst in all_data %}
+                                        {% for product in lst %}
+                                        <tr class="cart__table--body__items">
+                                            <td class="cart__table--body__list">
+                                                <div class="cart__product d-flex align-items-center">
+                                                    <a class="cart__remove--btn" href="{% url 'remove_cart' product.id %}" aria-label="search button" type="button">
+                                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg>
+                                                    </a>
+                                                    <div class="cart__thumbnail">
+                                                        {% for image in product.productimage_set.all|slice:":1" %}
+                                                        <a href="{% url 'product_detail' product.pk %}"><img class="border-radius-5" src="{{image.image_file.url}}" alt="cart-product"></a>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="cart__content">
+                                                        <h3 class="cart__content--title h4"><a href="{% url 'product_detail' product.pk %}">{{product.name}}</a></h3>
+                                                        <!-- <span class="cart__content--variant">COLOR: Blue</span>
+                                                        <span class="cart__content--variant">WEIGHT: 2 Kg</span> -->
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="cart__table--body__list">
+                                                <span class="cart__price">${{product.price}}</span>
+                                            </td>
+                                            <td class="cart__table--body__list">
+                                                <div class="quantity__box">
+                                                  
+                                                    <a type="button" class="quantity__value quickview__value--quantity decrease" href="{% url 'reduce_quantity' product.pk %}" aria-label="quantity value" value="Decrease Value">-</a>
+                                                    
+                                                    <label>
+                                                        <input type="number" class="quantity__number quickview__value--number" value="{{quantity_lst}}" data-counter />
+                                                    </label>
+                                                    <a type="button" class="quantity__value quickview__value--quantity increase" href="{% url 'add_quantity' product.pk %}" aria-label="quantity value" value="Increase Value">+</a>
+                                                </div>
+                                            </td>
+                                            <td class="cart__table--body__list">
+                                                <span class="cart__price end">${{subtotal_lst}}</span>
+                                            </td>
+                                        </tr>
+
+                                        {% endfor %}
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table> 
+                                <div class="continue__shopping d-flex justify-content-between">
+                                    <a class="continue__shopping--link" href="shop.html">Continue shopping</a>
+                                    <button class="continue__shopping--clear" type="submit">Clear Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="cart__summary border-radius-10">
+                                <div class="coupon__code mb-30">
+                                    <h3 class="coupon__code--title">Coupon</h3>
+                                    <p class="coupon__code--desc">Enter your coupon code if you have one.</p>
+                                    <div class="coupon__code--field d-flex">
+                                        <label>
+                                            <!-- <input class="coupon__code--field__input border-radius-5" placeholder="Coupon code" type="text"> -->
+                                            <!-- <input list="options" id="dropdown" name="dropdown"> -->
+                                            <!-- Dropdown list for browsers that support the select tag -->
+                                            <select class="coupon__code--field__input border-radius-5" id="options" name="options" style="width: 100%;">
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </label>
+                                        <button class="coupon__code--field__btn primary__btn" type="submit">Apply Coupon</button>
+                                    </div>
+                                </div>
+                                <div class="coupon__code mb-30">
+                                    <h3 class="coupon__code--title">Payment Method</h3>
+                                    <p class="coupon__code--desc">select your desirable payment method.</p>
+                                    <div class="coupon__code--field d-flex">
+                                        <label>
+                                            <!-- Dropdown list for browsers that support the select tag -->
+                                            <select name="pay" class="coupon__code--field__input border-radius-5" id="options">
+                                                <option value="bank">Bank</option>
+                                                <option value="crypto">Crypto</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </label>
+                                        <!-- <button class="coupon__code--field__btn primary__btn" type="submit">Apply Coupon</button> -->
+                                    </div>
+                                </div>
+                            
+                                <!-- <div class="cart__note mb-20">
+                                    <h3 class="cart__note--title">Note</h3>
+                                    <p class="cart__note--desc">Add special instructions for your seller...</p>
+                                    <textarea class="cart__note--textarea border-radius-5"></textarea>
+                                </div> -->
+                                <div class="cart__summary--total mb-20">
+                                    <table class="cart__summary--total__table">
+                                        <tbody>
+                                            <!-- <tr class="cart__summary--total__list">
+                                                <td class="cart__summary--total__title text-left">SUBTOTAL</td>
+                                                <td class="cart__summary--amount text-right">${{subtotal}}</td>
+                                            </tr> -->
+                                            <tr class="cart__summary--total__list">
+                                                <td class="cart__summary--total__title text-left">GRAND TOTAL</td>
+                                                <td class="cart__summary--amount text-right">${{subtotal}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="cart__summary--footer">
+                                    <p class="cart__summary--footer__desc">Shipping & taxes calculated at checkout</p>
+                                    <ul class="d-flex justify-content-between">
+                                        <li><button class="cart__summary--footer__btn primary__btn cart" type="submit">Update Cart</button></li>
+                                        <li><button class="cart__summary--footer__btn primary__btn checkout" type="submit">Check Out</button></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                    </div> 
+                </form> 
+            </div>
+        </div>     
+    </section>
+    <!-- cart section end -->
+
+    <!-- Start brand section -->
+    <div class="brand__section section--padding pt-0">
+        <div class="container">
+            <div class="brand__section--inner d-flex justify-content-between align-items-center">
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/1.png' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/2.png' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/3.png' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/4.png' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/5.png' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/6.png' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/7.jpg' %}" alt="brand-logo">
+                </div>
+                <div class="brang__logo--items">
+                    <img class="brang__logo--img" src="{% static 'img/partners/8.png' %}" alt="brand-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End brand section -->
+
+     <!-- Start shipping section -->
+     <section class="shipping__section section--padding">
+        <div class="container">
+            <div class="shipping__inner mb-0 style2 d-flex">
+                <div class="shipping__items style2 d-flex align-items-center">
+                    <div class="shipping__icon">  
+                        <img src="{% static 'img/other/shipping1.webp' %}" alt="icon-img">
+                    </div>
+                    <div class="shipping__content">
+                        <h2 class="shipping__content--title h3">Free Shipping</h2>
+                        <p class="shipping__content--desc">Free shipping over $100</p>
+                    </div>
+                </div>
+                <div class="shipping__items style2 d-flex align-items-center">
+                    <div class="shipping__icon">  
+                        <img src="{% static 'img/other/shipping2.webp' %}" alt="icon-img">
+                    </div>
+                    <div class="shipping__content">
+                        <h2 class="shipping__content--title h3">Support 24/7</h2>
+                        <p class="shipping__content--desc">Contact us 24 hours a day</p>
+                    </div>
+                </div>
+                <div class="shipping__items style2 d-flex align-items-center">
+                    <div class="shipping__icon">  
+                        <img src="{% static 'img/other/shipping3.webp' %}" alt="icon-img">
+                    </div>
+                    <div class="shipping__content">
+                        <h2 class="shipping__content--title h3">100% Money Back</h2>
+                        <p class="shipping__content--desc">You have 30 days to Return</p>
+                    </div>
+                </div>
+                <div class="shipping__items style2 d-flex align-items-center">
+                    <div class="shipping__icon">  
+                        <img src="{% static 'img/other/shipping4.webp' %}" alt="icon-img">
+                    </div>
+                    <div class="shipping__content">
+                        <h2 class="shipping__content--title h3">Payment Secure</h2>
+                        <p class="shipping__content--desc">We ensure secure payment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End shipping section -->
+
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+{% endblock %}

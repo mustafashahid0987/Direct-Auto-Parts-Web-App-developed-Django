@@ -1,0 +1,95 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Core Return Policy</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start privacy policy section -->
+    <div class="privacy__policy--section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="privacy__policy--content">
+
+                        <h1>
+                            Core Return Policy
+                        </h1>
+
+                        <a class="account__login--btn primary__btn" href="{% static 'img/core-return.pdf' %}" style="width: 20%; margin-top: 2%;">CORE RETURN <FORM></FORM></a>
+
+                        <p class="privacy__policy--content__desc" style="font-weight: bolder;">
+                            All remanufactured products are sold with an accompanying core charge. This core charge is refundable to the customer's account when the following criteria have been satisfied. All core returns must be:
+
+                            <ol class="privacy__policy--content__desc">
+                            <li class="privacy__policy--content__desc">Received by Diesel Parts Direct within 30 days of the original invoice date</li>
+                            <li class="privacy__policy--content__desc">Be rebuildable according to original equipment manufacturer’s specifications (if deemed non rebuildable, core will be used for scrap or returned to customer via freight collect)</li>
+                            <li class="privacy__policy--content__desc">The same part number that was provided to the customer</li>
+                            <li class="privacy__policy--content__desc">Accompanied by a completed Core Return Form</li>
+                            </ol>
+
+                        </p>
+
+                        <h1 class="privacy__policy--content__title">
+                            Core Return Process
+                        </h1>
+
+                        <p class="privacy__policy--content__desc">
+                        
+                            <ol class="privacy__policy--content__desc">
+                            <li class="privacy__policy--content__desc">Fill out our Core Return Form</li>
+                            <li class="privacy__policy--content__desc">Print the form: it will include a shipping label and packing slip</li>
+                            <li class="privacy__policy--content__desc">Pack and send your core</li>
+                            <li class="privacy__policy--content__desc">Please pack your item carefully (remove grease and protect part from possible shipping damage)</li>
+                            <li class="privacy__policy--content__desc">Place the packing slip inside your package with the core you are returning</li>
+                            <li class="privacy__policy--content__desc">Place the shipping label outside of the package (make sure to include your return address and take note of your tracking number); the customer is responsible for shipping charges</li>
+                            <li class="privacy__policy--content__desc">Your credit will be issued within 30 days from the day we received your core (if deemed rebuildable)</li>
+                        
+                        </p>
+
+                        
+                            
+                    </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End privacy policy section -->
+
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Service Departments</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start privacy policy section -->
+    <div class="privacy__policy--section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="privacy__policy--content">
+                        <img src="{% static 'img/other/serviceheaderwithnumber.png' %}" alt="" style="margin-bottom: 2%;">
+                        <h1 class="privacy__policy--content__title">Your Engine Partner
+                        </h1>
+
+                        <p class="privacy__policy--content__desc">
+                            Our mechanics are factory-trained to handle the most current diesel engines. We have the diagnostic equipment and skills to get your equipment back to work as soon as possible. Whether it's setting trim codes on injectors, programming an ECM or a full engine overhaul, we can do it at a reasonable price.
+                        </p>
+
+                        <img src="{% static 'img/other/servicephoto.png' %}" alt="" style="margin-bottom: 2%;">
+
+                        <p class="privacy__policy--content__desc">
+                            Your service team at Diesel Parts Direct is committed to processing all quotes and service jobs to quickly and accurately minimize your downtime. Whether you manage a fleet or have a single piece of equipment, we will respond to your engine needs in a timely manner. We feel communicating with our customers during the repair process is essential.
+                        </p>
+                        <h1 class="privacy__policy--content__title">
+                            Phone Number: 225.928.1913
+                        </h1>
+                        <h1 class="privacy__policy--content__title">
+                            (Press 4 for Service)
+                        </h1>
+
+                        <img src="{% static 'img/other/g1.png' %}" alt="" style="margin-bottom: 2%;">
+                        <img src="{% static 'img/other/fullservicedealers.png' %}" alt="" style="margin-bottom: 2%;">
+
+                        <h1 class="privacy__policy--content__title">
+                            Engines are our priority:
+                        </h1>
+
+                        <ol>
+                            <li class="privacy__policy--content__desc">
+                                Quick, high-quality service
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                Computer diagnostic capabilities
+                            </li>
+                            <li class="privacy__policy--content__desc">
+                                Accept and handle warranty needs
+                            </li>
+                        </ol>
+
+                        <img src="{% static 'img/other/g2.png' %}" alt="" style="margin-bottom: 2%;">
+                        <img src="{% static 'img/other/commonlyfound.png' %}" alt="" width=500 style="margin-bottom: 2%;">
+                        <img src="{% static 'img/other/g3.png' %}" alt="" style="margin-bottom: 2%;">
+
+                        <a href="https://maps.app.goo.gl/4Md4uEUP77qkMAjw5" target="_blank" rel="noopener">
+                        <img title="Diesel Parts Direct services Louisiana and South Mississippi" src="{% static 'img/other/map.png' %}" width=500 alt="Service Area Map">
+                        </a>
+
+                    </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End privacy policy section -->
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

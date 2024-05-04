@@ -1,0 +1,134 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Account</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start login section  -->
+    <div class="login__section section--padding">
+        <div class="container">
+            <form method="post" action="/register/">
+                {% csrf_token %}
+                <div class="login__section--inner">
+                    <div class="row row-cols-md-2 row-cols-4 justify-content-center">
+
+                        <div class="col">
+                            <div class="account__login register">
+                                <div class="account__login--header mb-25">
+                                    <h2 class="account__login--header__title mb-10">Create an Account</h2>
+                                    <p class="account__login--header__desc">Register here if you are a new customer</p>
+                                </div>
+                                <div class="account__login--inner">
+                                    <label>
+                                        <input class="account__login--input" name="first_name" placeholder="First Name" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="last_name" placeholder="Last Name" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="username" placeholder="Username" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="email" placeholder="Email Addres" type="email">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="company_name" placeholder="Compnay Name" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="street_address_1" placeholder="Street Address" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="street_address_2" placeholder="Street Address 2" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="zip_code" placeholder="Zip/Postal Code" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="city" placeholder="City" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="country" placeholder="Country" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="state" placeholder="State/Province" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="phone" placeholder="Phone" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="password" placeholder="Password" type="password">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="confirm_password" placeholder="Confirm Password" type="password">
+                                    </label>
+                                    <input class="account__login--btn primary__btn mb-10" value="Submit & Register" type="submit"></input>
+                                    <div class="account__login--remember position__relative">
+                                        <input class="checkout__checkbox--input" id="check2" type="checkbox">
+                                        <span class="checkout__checkbox--checkmark"></span>
+                                        <label class="checkout__checkbox--label login__remember--label" for="check2">
+                                            I have read and agree to the terms & conditions</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>     
+    </div>
+    <!-- End login section  -->
+
+
+
+</main>
+
+{% if messages %}
+    {% for message in messages %}
+    
+    {% if message.tags == 'success' %}
+    <script>
+        console.log("Success message:", "{{ message }}");
+        swal("Congratulations!", '{{message}}', "success");   
+    </script>
+    {% elif message.tags == 'error' %}
+    <script>
+        console.log("Error message:", "{{ message }}");
+        swal("Sorry", '{{message}}', "warning");   
+    </script>
+    {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

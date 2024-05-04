@@ -1,0 +1,99 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Exporting</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start privacy policy section -->
+    <div class="privacy__policy--section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="privacy__policy--content">
+                        <!-- <img src="{% static 'img/other/serviceheaderwithnumber.png' %}" alt="" style="margin-bottom: 2%;"> -->
+                        <h1 class="privacy__policy--content__title">Overseas Shipping Expertise
+                        </h1>
+
+                        <p class="privacy__policy--content__desc">
+                            When choosing to purchase internationally, quality, integrity and knowledge are of utmost importance. Here are a few of the key benefits our international customers enjoy.
+                        </p>
+
+                        <h2 class="privacy__policy--content__title">
+                            Customer Service Staff Dedicated to your Account
+                        </h2>
+                        
+                        <p class="privacy__policy--content__desc">
+                            Our global customers are assigned specific Customer Service Representatives knowledgeable of international service.
+                        </p>
+
+                        <h2 class="privacy__policy--content__title">
+                            Prompt, Professional Quotations
+                        </h2>
+                        <p class="privacy__policy--content__title">
+                            We take great pride in our quotations and ensuring that our customers know exactly what parts they are getting, the delivery times, and any facts pertinent to their potential order. Specifics include aftermarket versus genuine parts, new versus remanufactured parts, estimated delivery times for various options, and freight quotations.
+                        </p>
+                        <h2 class="privacy__policy--content__title">
+                            Proper, Timely Documentation
+                        </h2>
+                        <p class="privacy__policy--content__title">
+                            Because we deal with international shipments on a daily basis, we usually know what paperwork customers want at what time and are able to provide this very efficiently with little lag time. We routinely provide pro-forma invoices, harmonized code commercial invoice, packing slips, bills of lading, certificates of origin, dynamometer test reports, warranty information, and even facilitate third party inspections.
+                        </p>
+                        <h2 class="privacy__policy--content__title">
+                            Pride in Your Order
+                        </h2>
+                        <p class="privacy__policy--content__desc">
+                            We take a tremendous amount of care in packaging your international shipment ensuring that everything is organized for easy check in, packaged tightly so there is no damage in transit, and consolidated so that your freight expense is kept to a minimum.
+                        </p>
+                        <h2 class="privacy__policy--content__title">
+                            Flexible Freight Options
+                        </h2>
+                        <p class="privacy__policy--content__desc">
+                            Due to the volume of exporting we do, we are able to pass savings onto our customers. We routinely ship everything from small boxes to multiple 40-feet containers across the globe and can handle every aspect of the shipping process for you. If you already have an account with a preferred freight carrier, we will work with them to ensure that you receive your parts on time.
+                        </p>
+                        
+
+                    </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End privacy policy section -->
+
+
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+
+{% endblock %}

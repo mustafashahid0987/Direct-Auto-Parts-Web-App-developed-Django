@@ -1,0 +1,82 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{%% url 'index'}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Request For Return Material Authorization</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start login section  -->
+    <div class="login__section section--padding">
+        <div class="container">
+            <form method="post" action="{% url 'return_material_request' %}">
+                {% csrf_token %}
+                <div class="login__section--inner">
+                    <div class="row row-cols-md-2 row-cols-4 justify-content-center">
+                        <!-- <div class="col"> -->
+                            <div class="account__login">
+                                <div class="account__login--header mb-25">
+                                    <h2 class="account__login--header__title mb-10">Request For Return Material Authorization</h2>
+                                    <p class="account__login--header__desc">If you would like to return an item, please complete this form to request a Return Material Authorization (RMA).
+                                    </p>
+                                </div>
+                                <div class="account__login--inner">
+                                    <label>
+                                        <input class="account__login--input" name="name" placeholder="Name" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="email" placeholder="email" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="phone" placeholder="phone" type="text">
+                                    </label>
+                                    <label>
+                                        <input class="account__login--input" name="order_no" placeholder="Order No" type="text">
+                                    </label>
+                                    <label>
+                                        <textarea class="account__login--input" name="notes" placeholder="Write about the products which you want to return.." type="text"></textarea>
+                                    </label>
+                                    
+                                    <button class="account__login--btn primary__btn" type="submit">Submit Request</button>
+                                    
+                                </div>
+                            </div>
+            
+                    </div>
+                </div>
+            </form>
+        </div>     
+    </div>
+    <!-- End login section  -->
+
+
+
+</main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var elementToCollapse = document.getElementById("categoriesAccordion");
+          if (elementToCollapse) {
+            elementToCollapse.classList.remove("show");
+          }
+        });
+        
+    </script>
+{% endblock %}

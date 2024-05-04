@@ -1,0 +1,170 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__content_wrapper">
+        
+    <!-- Start breadcrumb section -->
+    <section class="breadcrumb__section breadcrumb__bg">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="breadcrumb__content text-center">
+                        <ul class="breadcrumb__content--menu d-flex justify-content-center">
+                            <li class="breadcrumb__content--menu__items"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb__content--menu__items"><span>Product</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb section -->
+
+    <!-- Start product details section -->
+    {% for product in product_data %}
+    <section class="product__details--section section--padding">
+        <div class="container">
+            <div class="row row-cols-lg-2 row-cols-md-2">
+                <div class="col">
+                    <div class="product__details--media">
+                        <div class="single__product--preview  swiper mb-25">
+                            <div class="swiper-wrapper">
+
+                                {% for image in product.productimage_set.all %}
+                                <div class="swiper-slide">
+                                    <div class="product__media--preview__items">
+                                        <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="{{image.image_file.url}}"><img class="product__media--preview__items--img" src="{{image.image_file.url}}" alt="product-media-img"></a>
+                                        <div class="product__media--view__icon">
+                                            <a class="product__media--view__icon--link glightbox" href="{{image.image_file.url}}" data-gallery="product-media-preview">
+                                                <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
+                                                <span class="visually-hidden">product view</span> 
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                            
+                            </div>
+                        </div>
+                        <div class="single__product--nav swiper">
+                            <div class="swiper-wrapper">
+                                {% for image in product.productimage_set.all|slice:":1" %}
+                                <div class="swiper-slide">
+                                    <div class="product__media--nav__items">
+                                        <img class="product__media--nav__items--img" src="{{image.image_file.url}}" alt="product-nav-img">
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                            <div class="swiper__nav--btn swiper-button-next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" -chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                            <div class="swiper__nav--btn swiper-button-prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=" -chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col">
+                    <div class="product__details--info">
+                        <form action="#">
+                            <h2 class="product__details--info__title mb-15">{{product.name}}</h2>
+                            <div class="product__details--info__price mb-12">
+                                <span class="current__price">${{product.price}}</span>
+                            </div>
+                          
+                            <p class="product__details--info__desc mb-15">{{product.desc|safe}}</p>
+                            <div class="product__variant">
+                                
+                              
+                                <div class="product__variant--list quantity d-flex align-items-center mb-20">
+                                    <div class="quantity__box">
+                                        <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" data-product-id="{{ product.id }}" data-action="decrease">-</button>
+                                        <label>
+                                            <input type="number" class="quantity__number quickview__value--number" value="1" data-counter data-product-id="{{ product.id }}">
+                                        </label>
+                                        <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" data-product-id="{{ product.id }}" data-action="increase">+</button>
+                                    </div>
+                                    
+                                    <a class="primary__btn quickview__cart--btn" href="{% url 'add_to_cart' product.pk %}" type="submit">Add To Cart</a>  
+                                </div>
+                                <div class="product__variant--list mb-15">
+                                    <a class="variant__wishlist--icon mb-15" href="{% url 'add_to_watchlist' product.pk %}" title="Add to wishlist">
+                                        <svg class="quickview__variant--wishlist__svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><path d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                        Add to Wishlist
+                                    </a>
+                                    <button class="variant__buy--now__btn primary__btn" type="submit">Buy it now</button>
+                                </div>
+                                <div class="product__variant--list mb-15">
+                                    <div class="product__details--info__meta">
+                                        <p class="product__details--info__meta--list"><strong>Stock:</strong>  <span> 565461</span> </p>
+                                        <!-- <p class="product__details--info__meta--list"><strong>Category:</strong>  <span>{{product.category}}</span> </p> -->
+                                        <!-- <p class="product__details--info__meta--list"><strong>Vendor:</strong>  <span>Belo</span> </p> -->
+                                        <p class="product__details--info__meta--list"><strong>Type:</strong>  <span>Diesel Parts</span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    <!-- End product details section -->
+
+
+   
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var elementToCollapse = document.getElementById("categoriesAccordion");
+      if (elementToCollapse) {
+        elementToCollapse.classList.remove("show");
+      }
+    });
+    
+</script>
+
+{% csrf_token %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.quantity__box .quantity__value').on('click', function() {
+        var productId = $(this).data('product-id');
+        var action = $(this).data('action');
+
+        $.ajax({
+            url: '/update_quantity/',
+            method: 'POST',
+            data: {
+                product_id: productId,
+                action: action
+            },
+            success: function(response) {
+                // Handle the response
+                if (response.success) {
+                    // Update the UI or display a success message
+                } else {
+                    // Display an error message
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+            }
+        });
+    });
+});
+
+</script>
+
+{% endblock %}
