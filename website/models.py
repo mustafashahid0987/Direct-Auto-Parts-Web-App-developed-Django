@@ -18,7 +18,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user
-    
+
 class contact_us(models.Model):
     submission_date = models.DateField(default=datetime.now, blank=True)
     first_name = models.CharField(max_length=1000000000,null=True)
@@ -29,7 +29,7 @@ class contact_us(models.Model):
 
     def __str__(self):
         return self.first_name
-    
+
 # Create your models here.
 class return_material_authorization(models.Model):
     submission_date = models.DateField(default=datetime.now, blank=True)
@@ -41,7 +41,7 @@ class return_material_authorization(models.Model):
 
     def __str__(self):
         return (str(self.name))
-    
+
 
 class newsletter(models.Model):
 
@@ -50,17 +50,17 @@ class newsletter(models.Model):
 
     def __str__(self):
         return (str(self.ndate))
-    
+
 
 class blogs(models.Model):
     submission_date = models.DateField(default=datetime.now, blank=True)
     title = models.CharField(max_length=1000000000,null=True)
     content = models.CharField(max_length=1000000000,null=True)
     image_file = models.ImageField(upload_to='media',null=True,default="None")
-    
+
     def __str__(self):
         return (str(self.title))
-    
+
 
 class Category(models.Model):
     name = models.CharField(max_length=1000000000,null=True)
@@ -75,20 +75,27 @@ class Subcategory(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 class Product(models.Model):
+
+    part_status = [
+    ('Parts By Engine', 'Parts By Engine'),
+    ('Parts By Category', 'Parts By Category'),
+
+]
     submission_date = models.DateField(default=datetime.now, blank=True)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     # Add other fields for product details
-    
+
     name = models.CharField(max_length=1000000000,null=True)
     desc = RichTextField()
     price = models.FloatField(max_length=1000000000,null=True)
     quantity = models.IntegerField(null=True)
+    part_status = models.CharField(max_length=1000000000,choices=part_status,null=True)
 
     def __str__(self):
         return self.name
-    
+
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image_file = models.ImageField(upload_to='product_images')
@@ -141,17 +148,17 @@ class Bank_details(models.Model):
 
     def __str__(self):
         return (self.bank_name)
-    
+
 
 class crypto(models.Model):
 
     network = models.CharField(max_length=1000000000,null=True)
     wallet_address = models.CharField(max_length=1000000000,null=True)
-    
+
 
     def __str__(self):
         return (self.network)
-    
+
 
 class discount_table(models.Model):
     user_ids = models.OneToOneField(User, on_delete=models.CASCADE)
