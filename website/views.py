@@ -48,12 +48,12 @@ def subcategory_view(request):
                 }
 
                 return render(request, 'website/product_list.html', context)
-            
+
             else:
                 messages.error(request, "Products for this subcategory will be uploaded soon.")
 
                 return render(request, 'website/index.html')
-        
+
     return redirect('index')
 
 
@@ -62,7 +62,7 @@ def subcategory_base(request, category_id, subcategory_id):
         category = get_object_or_404(Category, id=category_id)
         subcategory = get_object_or_404(Subcategory, id=subcategory_id)
         products = Product.objects.filter(subcategory=subcategory)
-        
+
         if products.exists():
             context = {
                 'category': category,
@@ -71,15 +71,15 @@ def subcategory_base(request, category_id, subcategory_id):
             }
 
             return render(request, 'website/product_list.html', context)
-        
+
         else:
             messages.error(request, "Products for this subcategory will be uploaded soon.")
 
             return render(request, 'website/index.html')
-        
+
     else:
         return redirect('index')
-    
+
 
 def about(request):
     return render(request,'website/about.html')
@@ -96,7 +96,7 @@ def contact(request):
         contact_obj.save()
 
         return redirect('index')
-    
+
     return render(request,'website/contact.html')
 
 @csrf_exempt
@@ -147,7 +147,7 @@ def checkout(request):
             # for product in obj1:
             #     subtotal += product.price_per_pack
 
-            
+
 
     all_data = zip(quantity_lst,lst,subtotal_lst, cart_id_lst)
     # context = {'all_data':all_data,'subtotal':subtotal, 'discount_instance':discount_instance}
@@ -167,7 +167,7 @@ def product_detail(request, pk):
 
     product_data = Product.objects.filter(id=int(pk))
     context = {'product_data':product_data}
-    # print(product_data) 
+    # print(product_data)
 
     return render(request,'website/product_detail.html', context)
 
@@ -220,7 +220,7 @@ def register(request):
         if password != confirm_password:
             messages.error(request, "Passwords do not match")
             return redirect('register')  # Redirect to registration page with error message
-        
+
         # Check if the username is already taken
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already exists")
@@ -262,7 +262,7 @@ def register(request):
 def newsletter_sub(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        
+
         # Check if the email already exists in the database
         if newsletter.objects.filter(email=email).exists():
             messages.error(request, 'You are already subscribed.')
@@ -285,10 +285,10 @@ def blog_detail(request,pk):
         title = b.title
 
     context = {'blog_details':blog_details, 'title':title}
-    # print(product_data) 
+    # print(product_data)
     return render(request, 'website/blog_detail.html', context)
 
-
+@login_required(login_url='login')
 def add_to_cart(request,pk):
 
     user_id = request.user.id
@@ -363,13 +363,14 @@ def cart(request):
             # for product in obj1:
             #     subtotal += product.price_per_pack
 
-            
+
 
     all_data = zip(quantity_lst,lst,subtotal_lst, cart_id_lst)
     # context = {'all_data':all_data,'subtotal':subtotal, 'discount_instance':discount_instance}
     context = {'all_data':all_data,'subtotal':subtotal}
     return render(request,'website/cart.html', context)
 
+@login_required(login_url='login')
 def add_to_watchlist(request,pk):
 
     user_id = request.user.id
@@ -429,10 +430,10 @@ def search_products(request):
             products = Product.objects.all()  # Or any default queryset if no search query
         context = {'products': products, 'query': query}
         return render(request, 'website/product_list.html', context)
-    
+
 
 def blog(request):
-    
+
     blog = blogs.objects.all()
 
     print(blog)
@@ -509,7 +510,7 @@ def add_order(request):
                                 fulfilment_status='Unfulfilled')
         obj.save()
 
-        
+
 
         for o in range(len(ob)):
             print("add order...",ob[0].coin_ids.all())
@@ -521,13 +522,13 @@ def add_order(request):
 
         messages.success(request, 'Your payment is under review..')
         ob.delete()
-        
+
         # dis_obj = discount_table.objects.get(id=discount_obj)
         # dis_obj.order_limit -= 1
         # dis_obj.save()
 
         # return redirect("my_order")
-    
+
     return redirect('cart')
 
 
@@ -553,7 +554,7 @@ def user_dashboard(request):
                 'total_users':total_users,
                 'total_products':total_products,
                }
-    
+
     return render(request,'website/user_dashboard.html',context)
 
 
@@ -628,8 +629,8 @@ def add_product(request):
         messages.success(request, 'Product is succesfully added..')
 
 
-        return redirect('product_list') 
-    
+        return redirect('product_list')
+
 
     sub_obj = Subcategory.objects.all()
 
@@ -676,5 +677,5 @@ def return_material_request(request):
         contact_obj.save()
 
         return redirect('index')
-    
+
     return render(request,'website/return_material_request.html')
